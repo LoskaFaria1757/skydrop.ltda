@@ -1,0 +1,922 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #7171a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* Paleta de azul já aplicada */
+  --amber-50: #eff6ff;
+  --amber-100: #dbeafe;
+  --amber-200: #bfdbfe;
+  --amber-300: #93c5fd;
+  --amber-400: #60a5fa;
+  --amber-500: #3b82f6;
+  --amber-600: #2563eb;
+  --amber-700: #1d4ed8;
+  --amber-800: #1e40af;
+  --amber-900: #1e3a8a;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: var(--zinc-950);
+  color: var(--zinc-100);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--zinc-800);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--amber-400);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--zinc-300);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--amber-400);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--amber-400);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+  color: var(--zinc-900);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 8px 30px rgba(96, 165, 250, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--zinc-300);
+  border: 1px solid var(--zinc-700);
+}
+
+.btn-secondary:hover {
+  background: var(--zinc-800);
+  border-color: var(--amber-400);
+  color: var(--amber-400);
+}
+
+/* Hero Section */
+.hero {
+  padding: 120px 0 80px;
+  /* Fundo ATUALIZADO para azul */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 70%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* ⬇️ NOVO: Estilos para o Vídeo de Fundo ⬇️ */
+#heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2; /* Fica atrás de tudo, exceto o fundo */
+  opacity: 0.2; /* Ajuste a opacidade conforme gostar */
+  object-fit: cover;
+}
+/* ⬆️ FIM DO NOVO ⬆️ */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23374151" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+  z-index: -1; /* Fica acima do vídeo, mas abaixo do conteúdo */
+}
+
+.hero-content {
+  display: grid;
+  /* ⬇️ ATUALIZADO: Ajustado para 1fr (coluna única) após remover o SVG ⬇️ */
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Reduzido o gap */
+  align-items: center;
+  position: relative;
+  z-index: 2; /* Garante que o conteúdo fique sobre o vídeo */
+  /* ⬇️ NOVO: Centraliza o texto ⬇️ */
+  text-align: center;
+  max-width: 700px; /* Limita a largura do texto */
+  margin: 0 auto; /* Centraliza o bloco de texto */
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--zinc-100), var(--amber-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: var(--zinc-400);
+  margin-bottom: 2rem;
+  /* ⬇️ ATUALIZADO: max-width agora é 100% (controlado pelo .hero-content) ⬇️ */
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* ⬇️ NOVO: Centraliza os botões ⬇️ */
+  justify-content: center;
+}
+
+/* ⬇️ REMOVIDO: Estilos do .hero-visual e .drone-animation removidos ⬇️ */
+/*
+.hero-visual { ... }
+.drone-animation { ... }
+@keyframes float { ... }
+*/
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  position: relative; /* Garante que fique sobre o vídeo */
+  z-index: 2;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  border: 1px solid var(--zinc-800);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--amber-400);
+  display: block;
+}
+
+.stat-label {
+  color: var(--zinc-400);
+  font-size: 0.9rem;
+}
+
+/* Services Section */
+.services {
+  padding: 80px 0;
+  background: var(--zinc-900);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--zinc-100);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--zinc-400);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: linear-gradient(
+    135deg,
+    rgba(39, 39, 42, 0.8),
+    rgba(24, 24, 27, 0.8)
+  );
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber-400), var(--amber-600));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--amber-400);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 20px 40px rgba(96, 165, 250, 0.1);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--zinc-100);
+}
+
+.service-card p {
+  color: var(--zinc-400);
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.service-features li {
+  color: var(--zinc-300);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-features li::before {
+  content: "✓";
+  color: var(--amber-400);
+  font-weight: bold;
+}
+
+/* Drones Section */
+.drones {
+  padding: 80px 0;
+  background: var(--zinc-950);
+}
+
+.drone-card {
+  background: linear-gradient(
+    135deg,
+    rgba(39, 39, 42, 0.6),
+    rgba(24, 24, 27, 0.6)
+  );
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.drone-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--amber-400);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 20px 40px rgba(96, 165, 250, 0.1);
+}
+
+.drone-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.spec-item {
+  background: rgba(39, 39, 42, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.spec-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--amber-400);
+}
+
+.spec-label {
+  font-size: 0.9rem;
+  color: var(--zinc-400);
+}
+
+/* Mapping Section */
+.mapping {
+  padding: 80px 0;
+  background: var(--zinc-900);
+}
+
+.mapping-container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.map-container {
+  background: var(--zinc-800);
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid var(--zinc-700);
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.map-controls {
+  background: rgba(39, 39, 42, 0.8);
+  border: 1px solid var(--zinc-700);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.control-group {
+  margin-bottom: 1.5rem;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--zinc-300);
+  font-weight: 500;
+}
+
+.control-group select,
+.control-group input {
+  width: 100%;
+  padding: 12px;
+  background: var(--zinc-800);
+  border: 1px solid var(--zinc-700);
+  border-radius: 8px;
+  color: var(--zinc-100);
+  font-size: 1rem;
+}
+
+.control-group select:focus,
+.control-group input:focus {
+  outline: none;
+  border-color: var(--amber-400);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.route-info {
+  background: rgba(39, 39, 42, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.info-label {
+  color: var(--zinc-400);
+}
+
+.info-value {
+  color: var(--amber-400);
+  font-weight: 600;
+}
+
+.map-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Contact Section */
+.contact {
+  padding: 80px 0;
+  background: var(--zinc-950);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-form {
+  background: rgba(39, 39, 42, 0.5);
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--zinc-300);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--zinc-800);
+  border: 1px solid var(--zinc-700);
+  border-radius: 8px;
+  color: var(--zinc-100);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--amber-400);
+  /* Sombra ATUALIZADA para azul */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--zinc-100);
+}
+
+.contact-info p {
+  color: var(--zinc-400);
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  list-style: none;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--zinc-300);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--zinc-900);
+}
+
+/* ⬇️ NOVO ESTILO ADICIONADO AQUI ⬇️ */
+.contact-details .contact-link {
+  color: var(--zinc-300);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-details .contact-link:hover {
+  color: var(--amber-400); /* Isto vai usar sua cor azul --amber-400 */
+  text-decoration: underline;
+}
+/* ⬆️ FIM DO NOVO ESTILO ⬆️ */
+
+/* Footer */
+footer {
+  background: var(--zinc-900);
+  border-top: 1px solid var(--zinc-800);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--zinc-400);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .mapping-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ⬇️ REMOVIDO: Animação .pulse removida (era do SVG) ⬇️ */
+/*
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse { ... }
+*/
+
+/* ===========================================================
+ ⬇️ ADICIONE TODO ESTE BLOCO NO FINAL DO SEU STYLE.CSS ⬇️
+=========================================================== */
+
+/* --- Seção "Como Funciona?" --- */
+.how-it-works {
+  padding: 80px 0;
+  background: var(--zinc-950); /* Fundo um pouco diferente */
+}
+
+/* --- NOVO: Correção para o botão "Ver Demo" --- */
+#demo-button {
+  color: var(--zinc-50); /* Cor do texto branca */
+  justify-content: center; /* Centraliza o texto/ícone horizontalmente */
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.process-step {
+  background: var(--zinc-900);
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.process-step .service-icon {
+  margin-left: auto;
+  margin-right: auto;
+  /* Estiliza o número '1', '2', etc */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--zinc-900);
+}
+
+.process-step h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--zinc-100);
+}
+
+.process-step p {
+  color: var(--zinc-400);
+}
+
+/* --- Seção "Calculadora de Drones" --- */
+.drone-calculator {
+  background: rgba(39, 39, 42, 0.8);
+  border: 1px solid var(--zinc-700);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+}
+
+.calculator-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+#drone-feedback {
+  text-align: center;
+  color: var(--amber-400);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Estado "desabilitado" para os cards de drone */
+.drone-card.faded {
+  opacity: 0.3;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+/* --- Seção "Casos de Uso" (TABS) --- */
+.use-cases {
+  padding: 80px 0;
+  background: var(--zinc-900);
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-pane {
+  display: none; /* Esconde todas as abas por padrão */
+  background: rgba(39, 39, 42, 0.5);
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.tab-pane.active {
+  display: block; /* Mostra apenas a aba ativa */
+  animation: fadeIn 0.5s ease forwards; /* Reutiliza sua animação */
+}
+
+.tab-pane h3 {
+  font-size: 1.5rem;
+  color: var(--amber-400);
+  margin-bottom: 1rem;
+}
+
+.tab-pane p {
+  font-size: 1.1rem;
+  color: var(--zinc-300);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsividade extra para a calculadora */
+@media (max-width: 768px) {
+  .calculator-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================================================
+ ⬇️ NOVO: ESTILOS DO MODAL DE SIMULAÇÃO ⬇️
+=========================================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--zinc-900);
+  border: 1px solid var(--zinc-800);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--zinc-400);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.modal-close:hover {
+  color: var(--amber-400);
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  color: var(--amber-400);
+  margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+  color: var(--zinc-300);
+  margin-bottom: 1rem;
+}
+
+#demo-map-canvas {
+  width: 100%;
+  height: 300px; /* Altura do mini-mapa */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: var(--zinc-800);
+}
+
+#demo-status {
+  text-align: center;
+  font-weight: 600;
+  color: var(--amber-400);
+  margin-bottom: 0;
+}

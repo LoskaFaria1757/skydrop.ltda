@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyDrop</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2'><path d='M12 2L2 7l10 5 10-5-10-5z' /><path d='M2 17l10 5 10-5' /><path d='M2 12l10 5 10-5' /></svg>"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path
+                d="M2 17l10 
+5 10-5"
+              />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          SkyDrop
+        </div>
+        <ul class="nav-links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#drones">Drones</a></li>
+          <li><a href="#mapeamento">Mapeamento</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <a href="#contato" class="btn btn-primary">Contratar Agora</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+      <video
+        playsinline
+        autoplay
+        muted
+        loop
+        poster="assets/Drone_Delivery_Video_Created.mp4"
+        id="heroVideo"
+      >
+        <source
+          src="assets/Drone_Delivery_Video_Created.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Entregas por Drones do Futuro</h1>
+            <p>
+              Revolucione sua logística com nossa tecnologia de ponta. Entregas
+              rápidas, seguras e sustentáveis através de drones autônomos com
+              monitoramento em tempo real.
+            </p>
+            <div class="hero-actions">
+              <a href="#servicos" class="btn btn-primary">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                Começar Agora
+              </a>
+              <a href="#mapeamento" class="btn btn-secondary">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Planejar Rota
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat-item fade-in">
+            <span class="stat-number">99.9%</span>
+            <span class="stat-label">Taxa de Sucesso</span>
+          </div>
+
+          <div class="stat-item fade-in">
+            <span class="stat-number">15min</span>
+            <span class="stat-label">Tempo Médio</span>
+          </div>
+          <div class="stat-item fade-in">
+            <span class="stat-number">50km</span>
+            <span class="stat-label">Alcance Máximo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nossos Serviços</h2>
+          <p class="section-subtitle">
+            Soluções completas de entrega por drones para diferentes
+            necessidades do seu negócio
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 
+0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+              </svg>
+            </div>
+            <h3>Entrega Express</h3>
+            <p>
+              Entregas urgentes em até 30 minutos para distâncias de até 15km.
+              Ideal para medicamentos, documentos e pequenos produtos.
+            </p>
+            <ul class="service-features">
+              <li>Rastreamento em tempo real</li>
+              <li>Notificações automáticas</li>
+              <li>Seguro incluso</li>
+              <li>Suporte 24/7</li>
+            </ul>
+
+            <a href="#contato" class="btn btn-primary">Contratar</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+
+            <h3>Entrega Programada</h3>
+            <p>
+              Agende suas entregas com antecedência. Perfeito para e-commerce e
+              entregas regulares com horários específicos.
+            </p>
+            <ul class="service-features">
+              <li>Agendamento flexível</li>
+              <li>Rotas otimizadas</li>
+              <li>Múltiplas entregas</li>
+              <li>Relatórios detalhados</li>
+            </ul>
+            <a href="#contato" class="btn btn-primary">Contratar</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 
+0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 2 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                />
+                <polyline points="3.3,7 12,12 20.7,7" />
+                <line x1="12" y1="22" x2="12" y2="12" />
+              </svg>
+            </div>
+            <h3>Logística Corporativa</h3>
+            <p>
+              Soluções personalizadas para empresas com alto volume de entregas.
+              Integração com sistemas existentes.
+            </p>
+            <ul class="service-features">
+              <li>API de integração</li>
+              <li>Dashboard personalizado</li>
+              <li>SLA garantido</li>
+              <li>Preços corporativos</li>
+            </ul>
+
+            <a href="#contato" class="btn btn-primary">Contratar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Como Funciona?</h2>
+          <p class="section-subtitle">
+            Nosso processo é simples, rápido e totalmente seguro, do clique à
+            entrega.
+          </p>
+          <button
+            class="btn btn-primary"
+            id="demo-button"
+            style="
+              margin-right: 10px;
+              margin-top: 50px;
+              width: 200px;
+              height: 80px;
+            "
+          >
+            Ver Demo
+          </button>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="service-icon"><span>1</span></div>
+            <h3>Faça o Pedido</h3>
+            <p>
+              Solicite sua entrega através do nosso site ou app e insira os
+              detalhes do pacote e destino.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="service-icon"><span>2</span></div>
+            <h3>Preparo e Decolagem</h3>
+            <p>
+              Nossa equipe prepara seu pacote em um compartimento seguro e o
+              drone inicia o voo autônomo.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="service-icon"><span>3</span></div>
+            <h3>Voo Inteligente</h3>
+            <p>
+              O drone segue uma rota otimizada, com sensores anticolisão e
+              monitoramento em tempo real.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="service-icon"><span>4</span></div>
+            <h3>Entrega Suave</h3>
+            <p>
+              O drone pousa em local seguro ou libera o pacote suavemente no
+              local de entrega designado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="drones" class="drones">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nossa Frota de Drones</h2>
+          <p class="section-subtitle">
+            Tecnologia de ponta com diferentes capacidades para atender todas as
+            suas necessidades
+          </p>
+        </div>
+
+        <div class="drone-calculator">
+          <div class="section-header">
+            <h3 class="section-title" style="font-size: 1.5rem">
+              Qual drone eu preciso?
+            </h3>
+          </div>
+          <div class="calculator-inputs">
+            <div class="control-group">
+              <label for="drone-peso">Peso do Pacote (em kg)</label>
+              <input
+                type="number"
+                id="drone-peso"
+                placeholder="Ex: 3.5"
+                min="0.1"
+                step="0.1"
+              />
+            </div>
+            <div class="control-group">
+              <label for="drone-distancia">Distância da Rota (em km)</label>
+
+              <input
+                type="number"
+                id="drone-distancia"
+                placeholder="Ex: 12"
+                min="1"
+                step="1"
+              />
+            </div>
+          </div>
+          <p id="drone-feedback">Preencha os campos para ver a recomendação.</p>
+        </div>
+        <div class="services-grid" id="drone-grid">
+          <div
+            class="drone-card"
+            data-drone="compacto"
+            data-max-peso="2"
+            data-max-distancia="15"
+          >
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 1v6m0 6v6" />
+                <path d="M21 12h-6m-6 0H3" />
+                <circle cx="5" cy="5" r="2" />
+
+                <circle cx="19" cy="5" r="2" />
+                <circle cx="5" cy="19" r="2" />
+                <circle cx="19" cy="19" r="2" />
+              </svg>
+            </div>
+            <h3>Drone Compacto</h3>
+            <p>
+              Ideal para entregas urbanas rápidas de pequenos pacotes e
+              documentos.
+            </p>
+            <div class="drone-specs">
+              <div class="spec-item">
+                <div class="spec-value">2kg</div>
+                <div class="spec-label">Carga Máxima</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-value">15km</div>
+                <div class="spec-label">Alcance</div>
+              </div>
+            </div>
+            <a href="#contato" class="btn btn-secondary">Solicitar</a>
+          </div>
+          <div
+            class="drone-card"
+            data-drone="medio"
+            data-max-peso="5"
+            data-max-distancia="25"
+          >
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="9" y="9" width="6" height="6" />
+                <path d="M12 1v6m0 6v6" />
+
+                <path d="M21 12h-6m-6 0H3" />
+                <rect x="2" y="2" width="6" height="6" rx="2" />
+                <rect x="16" y="2" width="6" height="6" rx="2" />
+                <rect x="2" y="16" width="6" height="6" rx="2" />
+                <rect x="16" y="16" width="6" height="6" rx="2" />
+              </svg>
+            </div>
+            <h3>Drone Médio</h3>
+            <p>Equilibrio perfeito entre capacidade de carga e autonomia.</p>
+            <div class="drone-specs">
+              <div class="spec-item">
+                <div class="spec-value">5kg</div>
+                <div class="spec-label">Carga Máxima</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-value">25km</div>
+                <div class="spec-label">Alcance</div>
+              </div>
+            </div>
+            <a href="#contato" class="btn btn-secondary">Solicitar</a>
+          </div>
+          <div
+            class="drone-card"
+            data-drone="carga"
+            data-max-peso="15"
+            data-max-distancia="50"
+          >
+            <div class="service-icon">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="6" y="6" width="12" height="12" />
+                <path d="M12 1v6m0 6v6" />
+
+                <path d="M21 12h-6m-6 0H3" />
+                <rect x="1" y="1" width="8" height="8" rx="3" />
+                <rect x="15" y="1" width="8" height="8" rx="3" />
+                <rect x="1" y="15" width="8" height="8" rx="3" />
+                <rect x="15" y="15" width="8" height="8" rx="3" />
+              </svg>
+            </div>
+            <h3>Drone Carga</h3>
+            <p>
+              Para entregas pesadas e longas distâncias com máxima
+              confiabilidade.
+            </p>
+            <div class="drone-specs">
+              <div class="spec-item">
+                <div class="spec-value">15kg</div>
+                <div class="spec-label">Carga Máxima</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-value">50km</div>
+                <div class="spec-label">Alcance</div>
+              </div>
+            </div>
+            <a href="#contato" class="btn btn-secondary">Solicitar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos-de-uso" class="use-cases">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Soluções por Setor</h2>
+          <p class="section-subtitle">
+            Entregas por drones não são apenas para um setor. Elas são para
+            todos.
+          </p>
+        </div>
+
+        <div class="tab-buttons">
+          <button class="btn btn-primary" data-tab="tab-restaurantes">
+            Restaurantes
+          </button>
+          <button class="btn btn-secondary" data-tab="tab-farmacias">
+            Farmácias
+          </button>
+          <button class="btn btn-secondary" data-tab="tab-ecommerce">
+            E-commerce
+          </button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab-restaurantes">
+            <h3>Pedidos quentes, clientes felizes.</h3>
+            <p>
+              Esqueça o trânsito. Nossos drones climatizados entregam refeições
+              na temperatura perfeita, reduzindo o tempo de entrega em até 80%.
+            </p>
+          </div>
+          <div class="tab-pane" id="tab-farmacias">
+            <h3>Saúde não pode esperar.</h3>
+            <p>
+              Entregue medicamentos de urgência, receitas controladas e produtos
+              de saúde em minutos, 24/7, garantindo velocidade e segurança.
+            </p>
+          </div>
+          <div class="tab-pane" id="tab-ecommerce">
+            <h3>A revolução do "Same-Day Delivery".</h3>
+            <p>
+              Transforme a logística da sua loja virtual. Ofereça entregas em
+              poucas horas (ou minutos) e fidelize clientes com a entrega mais
+              rápida do mercado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="mapeamento" class="mapping">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Planejamento de Rotas</h2>
+          <p class="section-subtitle">
+            Visualize e otimize suas rotas de entrega em tempo real
+          </p>
+        </div>
+        <div class="mapping-container">
+          <div class="map-container">
+            <div class="map-canvas" id="mapCanvas"></div>
+          </div>
+          <div class="map-controls">
+            <div class="control-group">
+              <label for="origem">Endereço de Origem</label>
+
+              <input
+                type="text"
+                id="origem"
+                placeholder="Digite o endereço de partida..."
+              />
+            </div>
+            <div class="control-group">
+              <label for="destino">Endereço de Destino</label>
+              <input
+                type="text"
+                id="destino"
+                placeholder="Digite o endereço de entrega..."
+              />
+            </div>
+
+            <div class="map-actions">
+              <button
+                class="btn btn-primary"
+                id="buscarRota"
+                style="width: 100%"
+              >
+                Buscar Rota
+              </button>
+            </div>
+
+            <hr style="border-color: var(--zinc-700); margin: 1.5rem 0" />
+            <div class="control-group">
+              <label for="droneSelect">Tipo de Drone</label>
+              <select id="droneSelect">
+                <option value="compacto">Drone Compacto (2kg)</option>
+                <option value="medio">Drone Médio (5kg)</option>
+
+                <option value="carga">Drone Carga (15kg)</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="packageWeight">Peso do Pacote (kg)</label>
+              <input
+                type="number"
+                id="packageWeight"
+                min="0.1"
+                max="15"
+                step="0.1"
+                value="1"
+              />
+            </div>
+
+            <div class="route-info">
+              <div class="info-item">
+                <span class="info-label">Distância:</span>
+                <span class="info-value" id="routeDistance">0 km</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Tempo Estimado:</span>
+                <span class="info-value" id="routeTime">0 min</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Custo Estimado:</span>
+                <span class="info-value" id="routeCost">R$ 0,00</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Drone Adequado:</span>
+                <span class="info-value" id="suitableDrone">-</span>
+              </div>
+            </div>
+            <div class="map-actions">
+              <button class="btn btn-secondary" id="optimizeRoute">
+                Otimizar
+              </button>
+              <button class="btn btn-secondary" id="clearRoute">Limpar</button>
+            </div>
+            <p
+              style="
+                color: var(--zinc-400);
+                font-size: 0.9rem;
+                margin-top: 1rem;
+              "
+            >
+              Clique no mapa ou use a busca. Arraste os pinos para ajustar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Entre em Contato</h2>
+          <p class="section-subtitle">
+            Pronto para revolucionar suas entregas? Fale conosco!
+          </p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-form">
+            <form id="contactForm" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company">Empresa</label>
+                  <input type="text" id="company" name="company" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Telefone</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="service">Serviço de Interesse</label>
+
+                <select id="service" name="service">
+                  <option value="">Selecione um serviço</option>
+                  <option value="express">Entrega Express</option>
+                  <option value="programada">Entrega Programada</option>
+                  <option value="corporativa">Logística Corporativa</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Conte-nos mais sobre suas necessidades de entrega..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22,2 15,22 11,13 2,9 22,2" />
+                </svg>
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Informações de Contato</h3>
+            <p>
+              Nossa equipe está pronta para atender você e criar a solução
+              perfeita para suas necessidades de entrega.
+            </p>
+            <ul class="contact-details">
+              <li>
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 
+0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <strong>Telefone</strong><br />
+                  <a
+                    href="https://wa.me/5535998954892"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                  >
+                    +55 (35) 99895-4892
+                  </a>
+                  <br />
+
+                  <a
+                    href="https://wa.me/5535910140611"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                  >
+                    +55 (35) 91014-0611
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+
+                <div>
+                  <strong>Email</strong><br />
+                  <a href="mailto:skydrop_ltda@gmail.com" class="contact-link">
+                    skydrop_ltda@gmail.com
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <strong>Endereço</strong><br />
+                  Brazópolis-MG - Brasil
+                </div>
+              </li>
+
+              <li>
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12,6 12,12 16,14" />
+                  </svg>
+                </div>
+                <div>
+                  <strong>Horário</strong><br />
+
+                  24/7 - Suporte contínuo
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 SkyDrop.LTDA & Lucas Geraldo Ribeiro de Faria - Todos os
+          direitos reservados. Entregas por drones do futuro, hoje.
+        </p>
+      </div>
+    </footer>
+
+    <div id="demo-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="close-modal" class="modal-close">&times;</button>
+        <h3>Simulação de Rastreamento</h3>
+        <p>Rota: Centro de Distribuição ➔ Seu Endereço</p>
+        <div id="demo-map-canvas"></div>
+        <p id="demo-status">Status: Drone a caminho...</p>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
