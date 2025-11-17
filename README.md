@@ -1,9 +1,3 @@
-Pronto! Aqui está o README.md completo com seu usuário (LoskaFaria1757) and repositório (Skydriver.ltda) já inseridos.
-
-Basta copiar tudo da caixa de código abaixo e colar no seu arquivo README.md.
-
-(Não se esqueça de trocar o link do LinkedIn e fazer o upload do GIF com o nome skydrop-demo.gif)
-
 # 🚀 SkyDrop.LTDA - Plataforma de Entregas por Drone
 
 ![Badge de Status](https://img.shields.io/badge/status-DEPLOY_CONCLUÍDO-blue?style=for-the-badge&logo=vercel)
