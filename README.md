@@ -16,6 +16,10 @@ Uma landing page moderna e totalmente responsiva para a "SkyDrop.LTDA", um servi
 
 ![Print da Tela do SkyDrop](https://github.com/[SEU-USUARIO]/[SEU-REPOSITORIO]/blob/main/seu-print-de-tela.png?raw=true)
 
+<p align="center">
+<img src="https://github.com/[SEU-USUARIO]/[SEU-REPOSITORIO]/blob/main/skydrop-demo.gif?raw=true" alt="Demo da Aplicação em Ação">
+</p>
+
 *(Substitua este link por um print do seu projeto)*
 
 ### 🔗 [Ver Demo Ao Vivo](https://[SEU-USUARIO].github.io/[SEU-REPOSITORIO]/index%201.html)
